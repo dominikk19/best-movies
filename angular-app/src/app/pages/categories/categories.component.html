@@ -1,1 +1,5 @@
-<p>categories works!</p>
+<div class="grid">
+  <a class="btn-large blue darken-1"
+     *ngFor="let cat of categories | async"
+  >{{ cat }}</a>
+</div>

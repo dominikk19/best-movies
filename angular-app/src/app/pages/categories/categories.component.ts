@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
+import {HttpService} from '../../services/http.service';
 
 @Component({
   selector: 'app-categories',
@@ -6,10 +8,13 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
+  categories: Observable<string[]>;
 
-  constructor() { }
+  constructor(private httpService: HttpService) {
+  }
 
   ngOnInit(): void {
+    this.categories = this.httpService.getCategories();
   }
 
 }
